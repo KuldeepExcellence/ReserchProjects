@@ -1,3 +1,5 @@
+// sample code done for the async storage
+
 import React, { useState } from "react";
 import { View, Text, TextInput, StyleSheet, TouchableOpacity, Dimensions, DeviceEventEmitter } from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
