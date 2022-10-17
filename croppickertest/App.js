@@ -1,6 +1,9 @@
+// https://www.npmjs.com/package/react-native-check-box
+//https://github.com/crazycodeboy/react-native-check-box/tree/master/examples
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image, PermissionsAndroid } from "react-native";
 import { launchCamera, launchImageLibrary } from "react-native-image-picker";
+import CheckBox from 'react-native-check-box'
 
 const Camera = () => {
   const [cameraPhoto, setCameraPhoto] = useState();
@@ -30,6 +33,9 @@ const Camera = () => {
   };
 
 
+  const [checked, setchecked] = useState(false);
+
+
   return (
     <View >
       <TouchableOpacity onPress={openCamera} >
@@ -40,6 +46,17 @@ const Camera = () => {
         <Text > Open Gallery </Text>
       </TouchableOpacity>
       <Image style={{ height: 100, width: 100 }} source={{ uri: galleryPhoto }}></Image>
+
+      <CheckBox
+        onClick={() => {
+          setchecked(
+            !checked
+          )
+        }}
+        isChecked={checked}
+        leftText={"CheckBox"}
+      />
+
     </View>
   )
 }
