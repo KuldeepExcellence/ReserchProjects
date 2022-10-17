@@ -1,3 +1,5 @@
+// https://www.npmjs.com/package/react-native-check-box
+//https://github.com/crazycodeboy/react-native-check-box/tree/master/examples
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image, PermissionsAndroid } from "react-native";
 import { launchCamera, launchImageLibrary } from "react-native-image-picker";
