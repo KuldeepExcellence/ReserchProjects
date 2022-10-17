@@ -25,7 +25,7 @@ const App = () => {
         });
     }
     const openGalleryFront = () => {
-        ImagePicker.openPicker({
+        ImagePicker.openCamera({
             width: 300,
             height: 400,
             cropping: true
