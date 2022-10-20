@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { View, Text } from "react-native";
 import { NavigationContainer } from "@react-navigation/native"
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
+import Signup from "./src/screens/signup";
 import Login from "./src/screens/login";
 import MainScreen from "./src/screens/mainscreen";
 import { AuthContext, AuthProvider } from "./context/AuthContext";
@@ -24,6 +24,7 @@ function AuthStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Login" component={Login}></Stack.Screen>
+      <Stack.Screen name="signup" component={Signup}></Stack.Screen>
     </Stack.Navigator>
   )
 }

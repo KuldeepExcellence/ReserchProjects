@@ -4,11 +4,11 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image, PermissionsAndroid } from "react-native";
 import { launchCamera, launchImageLibrary } from "react-native-image-picker";
 import CheckBox from 'react-native-check-box'
-
 const Camera = () => {
   const [cameraPhoto, setCameraPhoto] = useState();
   const [galleryPhoto, setGalleryPhoto] = useState();
-  let options = {
+  let options =
+  {
     saveToPhotos: true,
     mediaType: "photo",
   }
@@ -20,22 +20,11 @@ const Camera = () => {
       setCameraPhoto(result.assets[0].uri)
     }
   };
-
-
-
-
-
-
   const openGallery = async () => {
     const result = await launchImageLibrary(options)
     setGalleryPhoto(result.assets[0].uri);
-
   };
-
-
-  const [checked, setchecked] = useState(false);
-
-
+  const [checked, setchecked] = useState(true);
   return (
     <View >
       <TouchableOpacity onPress={openCamera} >
@@ -46,17 +35,16 @@ const Camera = () => {
         <Text > Open Gallery </Text>
       </TouchableOpacity>
       <Image style={{ height: 100, width: 100 }} source={{ uri: galleryPhoto }}></Image>
-
       <CheckBox
         onClick={() => {
           setchecked(
             !checked
+
           )
         }}
         isChecked={checked}
         leftText={"CheckBox"}
       />
-
     </View>
   )
 }
