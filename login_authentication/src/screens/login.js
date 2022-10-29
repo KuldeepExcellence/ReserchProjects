@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { View, Text, TouchableOpacity, TextInput, StyleSheet } from "react-native";
 import { AuthContext } from "../../context/AuthContext";
-
+// working on navigation
 export default function Login({ navigation }) {
     const { login } = useContext(AuthContext);
     const [username, onChangeUsername] = useState(null);
