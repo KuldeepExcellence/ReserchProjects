@@ -35,8 +35,6 @@ function AppNav() {
   return (
     <NavigationContainer>
       {userToken !== null ? <AppStack></AppStack> : <AuthStack></AuthStack>}
-
-
     </NavigationContainer>
   )
 }

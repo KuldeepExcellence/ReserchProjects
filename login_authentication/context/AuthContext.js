@@ -1,32 +1,29 @@
 import React, { createContext, useState, useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { BASE_URL } from "../config";
-import axios from "axios";
-
 export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
-
+    const [isLoading, setIsLoading] = useState(false)
     const [userToken, setUserToken] = useState(null);
     const [userInfo, setUserInfo] = useState(null);
     const [apiData, setApiData] = useState(null);
     const [accToken, setAccToken] = useState(null);
     const [refToken, setRefToken] = useState(null);
     const [userName, setUserName] = useState(null);
-    const login = async (username = 'deepak', password = 'passwordofeatemate@123') => {
+    const login = async () => {
         setUserToken("ashu");
-        console.log("login presed")
-        AsyncStorage.setItem('userToken', 'ashu');
+        console.log("login presed");
+        AsyncStorage.setItem('userToken', "ashu");
+        setIsLoading(true)
 
-
-        let response = await fetch('https://eatmatesapi.herokuapp.com/api/user-existance/', {
+        let response = await fetch('https://douryou.herokuapp.com/douryou-user/user-login/', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                "username": "prabh",
-                "password": "passwordofeatemate@123"
+                "username": "Hatim",
+                "password": "DouRyouPassword@123@#12097"
             })
         }).then((result) => {
             result.json().then((response) => {
@@ -42,18 +39,10 @@ export const AuthProvider = ({ children }) => {
                 setAccToken(response.token.access);
                 AsyncStorage.setItem("userToken", response.token.access);
                 setUserName(response.userdetail.username)
-
             })
-            //console.log("data = " + apiData)
-
         }).catch((e) => {
             console.log(e)
         });
-        // console.log(response);
-        // console.log("hello")
-
-
-
     }
     const logout = () => {
         setUserToken(null);
@@ -61,8 +50,8 @@ export const AuthProvider = ({ children }) => {
         AsyncStorage.removeItem('refereshToken')
         AsyncStorage.removeItem('userToken')
         console.log("logout presed")
+        setIsLoading(false)
     }
-
     const isLoggedIn = async () => {
         try {
             let userInfo = await AsyncStorage.getItem('userInfo');
@@ -71,7 +60,6 @@ export const AuthProvider = ({ children }) => {
             if (userInfo) {
                 setUserToken(userToken);
                 setUserInfo(userInfo);
-
             }
         } catch (e) {
             console.log(`isLogged in error ${e}`)
@@ -80,7 +68,6 @@ export const AuthProvider = ({ children }) => {
     useEffect(() => {
         isLoggedIn();
     }, []);
-
     return (
         <AuthContext.Provider value={{ login, logout, userToken, userInfo }}>
             {children}
