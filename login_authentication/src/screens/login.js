@@ -20,10 +20,10 @@ export default function Login({ navigation }) {
 
             />
             <TouchableOpacity style={{ margin: 20, backgroundColor: "#90c9f5", alignItems: "center" }} onPress={login} >
-                <Text style={{ fontSize: 30 }} > Login </Text>
+                <Text style={{ fontSize: 30 }} >Login</Text>
             </TouchableOpacity>
             <TouchableOpacity style={{ margin: 20, backgroundColor: "#cbe67c", alignItems: "center" }} onPress={signup} >
-                <Text style={{ fontSize: 30 }} > Signup  </Text>
+                <Text style={{ fontSize: 30 }} >Signup</Text>
             </TouchableOpacity>
         </View>
     )

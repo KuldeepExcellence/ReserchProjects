@@ -31,11 +31,12 @@ function AuthStack() {
 }
 
 function AppNav() {
+  
   const { userToken } = useContext(AuthContext)
   return (
     <NavigationContainer>
-      {userToken !== null ? <AppStack></AppStack> : <AuthStack></AuthStack>}
 
+      {userToken !== null ? <AppStack></AppStack> : <AuthStack></AuthStack>}
 
     </NavigationContainer>
   )
