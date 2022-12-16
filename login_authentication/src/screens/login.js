@@ -7,9 +7,7 @@ export default function Login({ navigation }) {
     const [username, onChangeUsername] = useState(null);
     const signup = () => {
         navigation.navigate("signup")
-
     }
-
     return (
         <View>
             <TextInput
@@ -25,6 +23,10 @@ export default function Login({ navigation }) {
             <TouchableOpacity style={{ margin: 20, backgroundColor: "#cbe67c", alignItems: "center" }} onPress={signup} >
                 <Text style={{ fontSize: 30 }} > Signup  </Text>
             </TouchableOpacity>
+
+
+
+
         </View>
     )
 }

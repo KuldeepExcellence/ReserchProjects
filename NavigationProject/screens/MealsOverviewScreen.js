@@ -19,10 +19,8 @@ function MealsOverViewScreen({ route }) {
             duration={itemData.item.duration}
             affordability={itemData.item.affordability}
         >
-
         </MealItem>
     }
-
     return (
         <View style={styles.container}>
             <FlatList data={displayedMeals} keyExtractor={(item) => item.id} renderItem={renderMealItem}  > </FlatList>
